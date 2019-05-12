@@ -12,30 +12,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     @Bean
-    public UserDetailsService userDetailsService(){
-
-        UserDetailsService userDetailsService = null;
-
-        try {
-            userDetailsService = super.userDetailsServiceBean();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return userDetailsService;
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
     @Override
     @Bean
-    public AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManagerBean();
+    public UserDetailsService userDetailsServiceBean() throws Exception{
+        return super.userDetailsServiceBean();
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder.inMemoryAuthentication()
-                .withUser("tofik.mussa").password("{cipher}11559301").roles("USER")
+                .withUser("tofik.mussa").password("11559301").roles("USER")
                 .and()
-                .withUser("risqua.mussa").password("{cipher}11314321").roles("ADMIN", "USER");
+                .withUser("risqua.mussa").password("11314321").roles("ADMIN", "USER");
     }
 }

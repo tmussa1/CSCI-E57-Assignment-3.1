@@ -6,7 +6,6 @@ echo "********************************************************"
 while ! `nc -z eurekaserver  $EUREKASERVER_PORT`; do sleep 3; done
 echo "******* Eureka Server has started"
 
-
 echo "********************************************************"
 echo "postgres starting on port $DATABASESERVER_PORT"
 echo "********************************************************"

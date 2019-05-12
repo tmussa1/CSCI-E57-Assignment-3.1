@@ -8,17 +8,17 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @Configuration
 public class SecurityConfig extends ResourceServerConfigurerAdapter {
 
-    @Override
-    public void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests().anyRequest().authenticated();
-    }
-
 //    @Override
 //    public void configure(HttpSecurity httpSecurity) throws Exception {
-//        httpSecurity.authorizeRequests()
-//                .antMatchers(HttpMethod.DELETE, "/v1/companys/**")
-//                .hasRole("ADMIN")
-//                .anyRequest()
-//                .authenticated();
+//        httpSecurity.authorizeRequests().anyRequest().authenticated();
 //    }
+
+    @Override
+    public void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests()
+                .antMatchers(HttpMethod.DELETE, "/v1/companys/**")
+                .hasRole("ADMIN")
+                .anyRequest()
+                .authenticated();
+    }
 }

@@ -1,10 +1,13 @@
 eureka:
   instance:
     preferIpAddress: true
-#    hostname: eurekaserver
     ip-address: 192.168.99.100
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://192.168.99.100:8761/eureka/
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://192.168.99.100:8084/auth/

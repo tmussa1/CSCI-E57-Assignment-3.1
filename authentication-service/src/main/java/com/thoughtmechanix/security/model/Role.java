@@ -3,11 +3,10 @@ package com.thoughtmechanix.security.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_roles_tb")
+@Table(name = "user_roles_ta")
 public class Role{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id", nullable = false)
     private String roleId;
 
